@@ -1,0 +1,192 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul{
+    list-style-type: none;
+}
+body{
+
+    width:100%;
+    height:100vh;
+    margin:0;
+   
+    
+}
+
+.nav{
+    width:100%;
+    height:20%;
+    background-color: rgb(65, 65, 227);
+
+}
+.nav .top{
+    width:100%;
+    height:32%;
+    border-bottom:1px solid white;
+    
+}
+/* Gap is for flex and grid
+
+*/
+.nav .top ul{
+    
+    list-style-type: none;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width:95%;
+    height:100%;
+    gap:2%;
+}
+.nav .top ul li{
+    color:white;
+}
+
+.nav .top ul li:hover{
+    color:grey;
+    
+}
+
+*li{
+    color:white;
+}
+a{
+    
+    text-decoration: none;
+    color:inherit;
+}
+
+
+.nav .middle{
+    width:100%;
+    height:32%;
+    border-bottom:1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:20%;
+    
+   
+    
+}
+.nav .middle span{
+    color:white;
+    font-size:20px;
+    width:33%;
+}
+.nav .middle .search_bar{
+    width:33%;
+    height:75%;
+    padding:0;
+    margin:0;
+    gap:0;
+    display: flex;
+
+
+}
+.nav .middle .search_bar button{
+    background-color: red;
+    color:white;
+    padding:0px;
+    width:80px;
+    height:100%;
+    
+    cursor: pointer;
+
+    
+}
+.nav .middle .search_bar button:hover{
+    background-color: black;
+}
+.nav .middle .search_bar select{
+    outline:none;
+    width:120px;
+    border:none;
+    padding:0px;
+    height:100%;
+
+ 
+}
+.nav .middle .search_bar input{
+    padding:0px;
+    flex:1; /*take the rest of the space*/
+    outline:none;
+    height:100%;
+}
+
+
+.nav .middle .icons{
+    width:33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap:5%;
+    
+    
+   
+}
+.nav .middle .icons .icon{
+    width:30%;
+    height:100%;
+    border:1px solid rgb(135, 135, 135);
+    border-radius:50px;
+    
+}
+.nav .middle .icons .card{
+    position:absolute;
+    
+}
+.nav .middle .icons ul li{
+    display: none;
+
+}
+.nav .middle .icons li.popup ul{
+    width:100%;
+    height:100%;
+    display: flex;;
+    flex-direction: column;
+    padding:10px;
+}
+.nav .middle .icons li.popup:hover .card{
+    background-color: rgb(70, 66, 66);
+    z-index: 999;
+    width:75px;
+    height:100px;
+}
+.nav .middle .icons li.popup:hover ul li{
+    color:white;
+    font-size: 12px;
+    font-weight: 300;
+    width:25%;
+    height:25%;
+    display:block;
+}
+.nav .middle .icons li.popup .card ul li:hover{
+    color: gray;
+}
+
+.nav .bottom{
+    width:100%;
+    height:33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav .bottom ul{
+    list-style-type: none;
+    display: flex;
+    gap:20px;
+    height:auto ;
+    width:auto;
+}
+.nav .bottom ul li{
+    color:white;
+    
+}
+
+.nav .bottom ul li:hover{
+    color:red;
+}
