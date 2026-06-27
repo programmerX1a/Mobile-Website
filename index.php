@@ -13,7 +13,7 @@ include "header.php";
 <body>
 <div class="container">
     <div class="slideshow1">
-         <a href="" class="image"><img src="images/image1.png"  class="images"></a>
+         <a href="product.php?id=1" class="image"><img src="images/image1.png"  class="images"></a>
          <a href="" class="image"><img src="images/image2.png"  class="images"></a>
          <a href="" class="image"><img src="images/image3.png"  class="images"></a>
         <div class="arrowcontainer">

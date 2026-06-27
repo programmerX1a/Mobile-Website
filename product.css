@@ -1,0 +1,52 @@
+body{
+    padding:0;
+    margin:0;
+   
+
+}
+*{
+    box-sizing: border-box;
+}
+.container{
+    width:95%;
+    height:80vh;
+    display: flex;
+    flex-flow: row wrap;
+    margin:auto;
+    margin-top:5%;
+}
+.container .image{
+    width:50%;
+    height:100%;
+}
+.container .image img{
+    width:80%;
+    height:80%;
+    transition:filter 0.5s ease-in-out;
+}
+.container .image:hover img{
+    filter:brightness(80%);
+    filter:contrast(80%);
+}
+.container .content{
+    height:80%;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+
+}
+.container .content h1{
+    width:100%;
+}
+table,th,td{
+    border:1px,solid;
+    
+}
+table{
+    width:85%;
+    margin:auto;
+    
+    height:auto;
+}
