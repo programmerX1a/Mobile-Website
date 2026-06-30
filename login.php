@@ -38,6 +38,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $_SESSION["user_id"]=$row["id"];
             $_SESSION["username"]=$username;
             $_SESSION["logged"]=true;
+            if($row["admin"]&&!empty($row["admin"]))
+                $_SESSION["admin"]=true;
             header("Location: index.php");
             
         }
@@ -71,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </head>
 <body>
     <form action="login.php" method="post">
-        <span><img src="images/arrow.png" width="20px" height="10px"><a href="header.php">Home</a></span>
+        <span><img src="images/arrow.png" width="20px" height="10px"><a href="index.php">Home</a></span>
         <h1>Login</h1>
         
         <div class="field">        

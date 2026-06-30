@@ -3,16 +3,6 @@
 session_start();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Website</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
     <div class="nav">
         <header class="top">
             <ul>
@@ -27,11 +17,17 @@ session_start();
             <span>X Shop</span>
 
             <div class="search_bar">
-                <select>
-                    <option>All Categories</option>
+                <select id="search_category" name="search_category">
+                    <option value="all">All Categories</option>
+                    <option value="Phone">Phones</option>
+                    <option value="cameras">Cameras</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="accessories">Accessories</option>
+                    
                 </select>
-                <input placeholder="Search here">
-                <button>Search</button>
+                <input placeholder="Search here" id="search" name="search">
+                <button onclick="Search()">Search</button>
             </div>
 
             <ul class="icons">
@@ -39,7 +35,7 @@ session_start();
                 <div class="card">
                     <ul>
                     <?php
-                    if(isset($_SESSION["logged"])){
+                    if(isset($_SESSION["logged"])&&!empty($_SESSION["logged"])){
 
                         if($_SESSION["logged"]==true)
                         echo'<li>Welcome, '.$_SESSION["username"].'</li>';
@@ -68,19 +64,23 @@ session_start();
         </div>
         <div class="bottom">
             <ul>
-                <li><a href="">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="">Mobiles</a></li>
                 <li><a href="">Laptops</a></li>
                 <li><a href="">Accessories</a></li>
                 <li><a href="">Cameras</a></li>
                 <li><a href="">Electronics</a></li>
+                <?php
+                if(!empty($_SESSION["admin"])&&$_SESSION["admin"]==true)
+                echo'<li><a href="admin.php">Admin Dashboard</a></li>';
+                ?>
                
             </ul>
         </div>
 
         
     </div>
+<script src="header.js">
 
-    
-</body>
-</html>
+</script>
+

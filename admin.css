@@ -1,0 +1,27 @@
+.container{
+    width:100%;
+    height:100%;
+}
+table,tr,td{
+    border:1px solid black;
+}
+.container table{
+    
+    width: 75%;
+    margin:auto;
+    height:80%;
+    margin-top:2%;
+    
+}
+.container .buttondiv{
+    display: flex;
+    justify-content: center;
+    margin-top:5%;
+}
+.container button{
+    width:20%;
+    text-align: center;
+    position:absolute;
+    
+    
+}

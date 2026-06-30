@@ -1,6 +1,7 @@
 <?php
 include "db.php";
 session_start();
+$_SESSION["logged"]=false;
 $err1=$err2=$err3="";
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $_SESSION["err"]="";
@@ -73,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </head>
 <body>
     <form action="register.php" method="post">
-        <span><img src="images/arrow.png" width="20px" height="10px"><a href="header.php">Home</a></span>
+        <span><img src="images/arrow.png" width="20px" height="10px"><a href="index.php">Home</a></span>
         <h1>Registration</h1>
         
         <div class="field">        

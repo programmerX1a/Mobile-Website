@@ -1,5 +1,4 @@
 <?php
-include "header.php";
 include "db.php";
 $id=$_GET["id"];
 $sql="SELECT * FROM products WHERE id=?";
@@ -19,26 +18,31 @@ $specs=$stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $product["name"];?></title>
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="index.css">
 
 </head>
 <body>
+    <?php
+include "header.php";
+?>
     <div class="container">
-        <div class="image">
-            <img src="images/<?php echo $product["image"];?>">
+        <div class="main">
+            <div class="image">
+                <img src="images/<?php echo $product["image"];?>">
+            </div>
+            <div class="content">
+                <h1><?php echo $product["name"] ." ". $product["type"] ; ?></h1>
+                <h2>Price: <?php echo $product["price"];?>$</h2>
+                <form action="product.php?id=<?php echo $id;?>" method="POST">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" id="quantity" min="1">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
         </div>
-        <div class="content">
-            <h1><?php echo $product["name"] ." ". $product["type"] ." ". $specs["RAM"]." ".$specs["Color"]; ?></h1>
-            <h2>Price: <?php echo $product["price"];?>$</h2>
-            <form action="product.php?id=<?php echo $id;?>" method="POST">
-                <label for="quantity">Quantity</label>
-                <input type="number" name="quantity">
-                <button type="submit">Add to Cart</button>
-            </form>
-        </div>
-
-    </div>
-    <table>
-        <h1 style="text-align:center;">Product Specs</h1>
+        <h1 class="specs">Product Specs</h1>
+        <table>
+        
         <?php
         foreach($specs as $key=>$value){
          if(!empty($key)&& !str_contains($key,"id")&&!empty($value))
@@ -49,7 +53,10 @@ $specs=$stmt->fetch(PDO::FETCH_ASSOC);
 
         ?>
         
-    </table>
+        </table>
+
+    </div>
+    
     
 </body>
 </html>

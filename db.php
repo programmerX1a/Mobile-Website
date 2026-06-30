@@ -1,7 +1,7 @@
 <?php
     try {
         $dbhost = 'localhost';
-        $dbname='Mobile_Website_db';
+        $dbname='Mobile_Website';
         $dbuser = 'root';
         $dbpass = '';
         $pdo = new PDO(
