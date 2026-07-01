@@ -1,20 +1,34 @@
 <?php
+include "db.php";
+$count=0;
+if(isset($_SESSION["user_id"])&&!empty($_SESSION["user_id"])){
+$sql="SELECT * FROM cart WHERE user_id=?";
+$stmt=$pdo->prepare($sql);
+$stmt->execute([$_SESSION["user_id"]]);
+$row=$stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach($row as $i){
+    $count+=$i["count"];
+}
+$data=["count"=>$count,"success"=>true];
 
-session_start();
+}
+else{
+    $data=["count"=>$count,"success"=>false];
+}
+
 ?>
-
     <div class="nav">
         <header class="top">
             <ul>
-                <li><a href="">Hotline 15474</a></li>
-                <li><a href="">Cart</a></li>
-                <li><a href="">Checkout</a></li>
+                <li><a>Hotline 15474</a></li>
+                <li><a href="cart.php">Cart</a></li>
+                <li><a href="checkout.php">Checkout</a></li>
             </ul>           
         </header>
 
 
         <div class="middle">
-            <span>X Shop</span>
+            <span><a href="index.php">X Shop</a></span>
 
             <div class="search_bar">
                 <select id="search_category" name="search_category">
@@ -53,8 +67,17 @@ session_start();
             
                 </li>
                 
-                <li><a href=""><img src="images/favourites.png" width="40px" height="40px"></a></li>
-                <li><a href=""><img src="images/shopping.png" width="40px" height="40px"></a></li>
+                <li><a href="cart.php"><img src="images/shopping.png" width="40px" height="40px">
+                    <?php
+                    if($data["success"]==true)
+                        echo'<span class="count"> '.$data["count"].'  </span>';
+
+                    ?>
+            </a></li>
+               
+                
+                    
+                
                 
 
 
@@ -65,11 +88,11 @@ session_start();
         <div class="bottom">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="">Mobiles</a></li>
-                <li><a href="">Laptops</a></li>
-                <li><a href="">Accessories</a></li>
-                <li><a href="">Cameras</a></li>
-                <li><a href="">Electronics</a></li>
+                <li><a href="search.php?category=Phone">Mobiles</a></li>
+                <li><a href="search.php?category=Laptop">Laptops</a></li>
+                <li><a href="search.php?category=Acessory">Accessories</a></li>
+                <li><a href="search.php?category=Camera">Cameras</a></li>
+                <li><a href="search.php?category=Electronic">Electronics</a></li>
                 <?php
                 if(!empty($_SESSION["admin"])&&$_SESSION["admin"]==true)
                 echo'<li><a href="admin.php">Admin Dashboard</a></li>';

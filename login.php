@@ -1,8 +1,15 @@
 <?php
 include "db.php";
 session_start();
+
+if(isset($_SESSION["user_id"])){
+    header("Location: index.php");
+}
 $err1=$err2="";
-$_SESSION["logged"]=false;
+
+
+
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $_SESSION["err"]="";
     if(!isset($_POST["username"]) || empty($_POST["username"])){

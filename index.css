@@ -190,3 +190,17 @@ a{
 .nav .bottom ul li:hover{
     color:red;
 }
+
+ .nav .middle  span.count{
+    background-color: red;
+    color:white;
+    height:20px;
+    text-align: center;
+    font-size:15px;    
+    border-radius:10px;
+    padding:2px;   
+    
+    
+    
+
+}

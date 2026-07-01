@@ -82,3 +82,14 @@ table,th,td{
     border:1px solid rgb(74, 68, 68);
     padding-bottom:2%;
 }
+.container .success{
+    background-color: rgb(16, 234, 16);
+    border:1px solid green;
+    width:100%;
+    padding:15px;
+    margin-bottom:2%;
+}
+.container .success h1{
+    text-align:center;
+    font-size:25px;
+}

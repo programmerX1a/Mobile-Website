@@ -1,5 +1,10 @@
 <?php
 include "db.php";
+session_start();
+if(empty($_GET["search"])||!isset($_GET["search"])){
+    $_GET["search"]="";
+}
+
 
 $items_per_page=99;
 
@@ -58,10 +63,11 @@ $products=$stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($products as $i){
             echo'
             <div class="product">
-               <img src="images/' .$i["image"].' ">
-               <span>'.$i["name"].'  </span>
-               <p>'.$i["price"].'$</p>
-    
+            
+               <a href="product.php?id='.$i["id"].'"><img src="images/' .$i["image"].' "></a>
+               <a href="product.php?id='.$i["id"].'"><span>'.$i["name"].'  </span></a>
+               <a href="product.php?id='.$i["id"].'"><p>'.$i["price"].'$</p></a>
+            
 
 
             </div>
@@ -87,7 +93,7 @@ $products=$stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
         <span class="arrow"><a href="search.php?category=<?php echo $_GET["category"]?>&search=<?php echo $_GET["search"]?>&page=<?php if($page>=$total_pages) echo 1; else echo $page+1; ?>" >></a></span>
     </div>
-<script src="search.js"></script>
+
 </body>
 
 </html>

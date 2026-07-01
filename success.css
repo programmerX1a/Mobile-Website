@@ -1,0 +1,39 @@
+.container{
+    width:100%;
+    height:100vh;
+    background:linear-gradient(to right,rgb(186, 246, 191),white);
+    display: flex;
+    align-items: center;
+
+}
+.container .success{
+    width:50%;
+    height:50%;
+    backdrop-filter: blur(5px);
+    margin:auto;
+    background: linear-gradient( rgb(186, 243, 191) , white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2%;
+    
+    
+}
+.container .success img{
+    width:75px;
+    height:75px;
+}
+.container .success a{
+    text-decoration: none;
+    color:rgb(54, 49, 49);
+}
+.container .success button{
+    background-color: yellow;
+    margin-top:5%;
+}
+.container .success p{
+    width:90%;
+}
+.container .success button:hover{
+    background-color: orange;
+}
